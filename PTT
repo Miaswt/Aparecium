@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ask Out Your Crush</title>
+<style>
+    /* Center align the button */
+    .center {
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+
+<!-- First page with the question and button -->
+<div class="center">
+    <h1>Will you go on a date with me?</h1>
+    <button onclick="showOptions()">Aparecium</button>
+</div>
+
+<!-- Hidden div for the pop-up options -->
+<div id="options" style="display:none;" class="center">
+    <h2>What's your choice?</h2>
+    <button onclick="selectOption('Yes')">Yes</button>
+    <button onclick="moveButton()">Nah</button>
+</div>
+
+<!-- Script to handle the button movements and pop-ups -->
+<script>
+    // Function to show the options pop-up
+    function showOptions() {
+        document.getElementById('options').style.display = 'block';
+    }
+
+    // Function to handle the selection of options
+    function selectOption(option) {
+        if (option === 'Yes') {
+            alert("Congratulations! Your choice is very good. See you soon!");
+        } else {
+            alert("Oops! Looks like Nah is playing hide and seek with you!");
+        }
+    }
+
+    // Function to move the Nah button randomly
+    function moveButton() {
+        var button = document.querySelector('#options button:last-child');
+        var width = window.innerWidth - 100;
+        var height = window.innerHeight - 50;
+        var x = Math.floor(Math.random() * width);
+        var y = Math.floor(Math.random() * height);
+        button.style.position = 'absolute';
+        button.style.left = x + 'px';
+        button.style.top = y + 'px';
+    }
+</script>
+
+</body>
+</html>
